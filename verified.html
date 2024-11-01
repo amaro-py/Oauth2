@@ -1,0 +1,138 @@
+<link rel="stylesheet" href="styles.css">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificación Exitosa</title>
+    <link rel="icon" type="image/x-icon" href="verified.ico">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            --glow-color: #524c58;
+            text-shadow: 0 0 .7em var(--glow-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: radial-gradient(
+                at 88% 40%,
+                hsla(240, 15%, 9%, 1) 0px,
+                transparent 85%
+            ),
+            radial-gradient(at 49% 30%, hsla(240, 15%, 9%, 1) 0px, transparent 85%),
+            radial-gradient(at 14% 26%, hsla(240, 15%, 9%, 1) 0px, transparent 85%),
+            radial-gradient(at 0% 64%, hsl(304, 18%, 18%) 0px, transparent 85%),
+            radial-gradient(at 41% 94%, hsl(194, 24%, 24%) 0px, transparent 85%),
+            radial-gradient(at 100% 99%, hsl(71, 12%, 28%) 0px, transparent 85%);
+        }
+
+        .content {
+            text-align: center;
+            background-color: #1e1e1e;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(rgba(99, 78, 78, 0.133), transparent 80%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
+            width: 500px;
+            transition: 0.5s;
+            backdrop-filter: blur(10px);
+        }
+
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid #bb86fc;
+            --glow-color: #55416e;
+            text-shadow: 0 0 .7em var(--glow-color);
+        }
+
+        h1 {
+            color: #bb86fc;
+            font-size: 2.35rem;
+            --glow-color: #55416e;
+            text-shadow: 0 0 .7em var(--glow-color);
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .text {
+            position: relative;
+            z-index: 1;
+        }
+
+        .circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.4s ease;
+        }
+
+        .animated-button:hover .circle {
+            
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .arr-1, .arr-2 {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .animated-button:hover .arr-1 {
+            transform: translateX(6px);
+        }
+
+        .animated-button:hover .arr-2 {
+            transform: translateX(6px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content">
+        <h1>Verificación exitosa</h1>
+        <img id="avatar" src="" alt="Foto de perfil" class="profile-img" id="profile-pic">
+        <p>Hola, <span id="username"></span>, has sido verificado exitosamente, puedes continuar normalmente.</p>
+        <button class="animated-button" onclick="window.location.href='https://discord.gg/yeezus'">
+            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+              ></path>
+            </svg>
+            <span class="text">Ir al servidor</span>
+            <span class="circle"></span>
+            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+              ></path>
+            </svg>
+        </button>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('username');
+        const avatarUrl = urlParams.get('avatar_url');
+
+        document.getElementById('username').textContent = username;
+        document.getElementById('avatar').src = avatarUrl;
+    </script>
+</body>
+</html>
